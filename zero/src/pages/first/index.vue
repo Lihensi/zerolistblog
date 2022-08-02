@@ -3,6 +3,7 @@
     <div class="a" @click="handler">
       <h1>进入</h1>
     </div>
+    <!-- <Footer/> -->
   </div>
 </template>
 

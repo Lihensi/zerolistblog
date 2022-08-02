@@ -15,8 +15,9 @@ export default {
 .footer{
   width: 100%;
   height: 20px;
-  /* top: 100%; */
+  top: 100%;
   margin: 10px auto;
+  display: flex;
 }
 .site{
   text-align: center;
