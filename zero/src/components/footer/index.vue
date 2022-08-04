@@ -23,6 +23,7 @@ export default {
   text-align: center;
 }
 a{
+  text-align:center;
   color: aqua;
   margin: 20px auto;
   text-decoration: none;

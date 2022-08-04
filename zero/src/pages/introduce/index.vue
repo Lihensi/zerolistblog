@@ -145,7 +145,7 @@ tr {
 }
 
 td {
-  font-size: 20px;
+  font-size: 15px;
   display: block;
   flex: 1;
 }

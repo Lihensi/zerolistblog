@@ -89,7 +89,7 @@ export default {
   height: 700px;
   position: relative;
   border: 2px solid rgb(0, 174, 255);
-  margin: 0px 10px;
+  /* margin: 0px 10px; */
   box-sizing: border-box;
   padding: 20px;
   flex: 1;
