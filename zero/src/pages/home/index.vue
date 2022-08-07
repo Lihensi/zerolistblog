@@ -1,5 +1,5 @@
 <template>
-  <div class="body">
+  <div class="home">
     <Header />
     <div class="xnav">
       <div class="left-box">
@@ -13,8 +13,7 @@
             {{ item.text }}
           </li>
           <hr />
-          <li class="item" @click="go('about')">关于自己
-          </li>
+          <li class="item" @click="go('about')">关于自己</li>
         </ul>
       </div>
       <div class="right-box">
@@ -46,7 +45,7 @@ export default {
 </script>
 
 <style scoped>
-.body {
+.home {
   /* 弹性布局 让页面元素水平、垂直居中 */
   height: 100%;
   /* 渐变色 */
@@ -102,5 +101,18 @@ li {
   margin-top: 20px;
   text-align: left;
   list-style: none;
+}
+li.active,
+li.active:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+li:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+hr {
+  width: 90%;
+  margin: 18px auto;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 </style>

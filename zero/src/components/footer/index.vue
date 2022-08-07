@@ -16,8 +16,8 @@ export default {
   width: 100%;
   height: 20px;
   top: 100%;
-  margin: 10px auto;
-  display: flex;
+  margin: 0 auto;
+  /* display: flex; */
 }
 .site{
   text-align: center;
