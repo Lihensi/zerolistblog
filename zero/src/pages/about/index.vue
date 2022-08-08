@@ -45,7 +45,7 @@
 
 <script>
 export default {
-  namae: "about",
+  name: "about",
   data() {
     return {
       about: {

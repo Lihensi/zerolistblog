@@ -1,6 +1,6 @@
 import Vue from 'vue'
-// import ElementUI from 'element-ui';
-// import 'element-ui/lib/theme-chalk/index.css';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 import App from './App.vue'
 
 //引入全局组件
@@ -20,6 +20,7 @@ import '@/elements'
 import axios from 'axios'
 
 Vue.prototype.$http = axios
+Vue.use(ElementUI)
 Vue.config.productionTip = false
 
 new Vue({

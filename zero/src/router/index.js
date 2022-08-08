@@ -6,8 +6,15 @@ const Home = () => import('@/pages/home')
 const First = () => import("@/pages/first")
 const Introduce = () => import("@/pages/introduce")
 const Resume = () => import("@/pages/resume")
-const Comments=()=>import('@/pages/comments')
-const About=()=>import('@/pages/about')
+const Comments = () => import('@/pages/comments')
+const About = () => import('@/pages/about')
+
+const originalPush = VueRouter.prototype.push
+
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -18,9 +25,9 @@ const routes = [
       { path: '/', redirect: '/introduce' },
       { path: '/introduce', component: Introduce },
       { path: '/resume', component: Resume },
-      {path:'/comments',component:Comments},
+      { path: '/comments', component: Comments },
       {
-        path:'/about',component:About
+        path: '/about', component: About
       }
     ]
   },
