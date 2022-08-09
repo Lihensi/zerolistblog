@@ -107,12 +107,17 @@ export default {
 </script>
 
 <style scoped>
+.resume{
+   position: relative; 
+   /* margin: 0 auto;  */
+}
 .center {
   position: absolute;
-  margin: 0 auto;
+  margin-top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border:1px solid #fea;
 
-  /* text-align:center; */
-  flex: 1;
 }
 .all {
   width: 100%;
@@ -125,7 +130,7 @@ export default {
 }
 .header {
   display: flex;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   background-color: red;
   height: 150px;
   width: 500px;
@@ -156,14 +161,12 @@ export default {
 }
 .skill {
   width: 500px;
-
   height: 120px;
   background-color: #fea;
 }
 .me {
   height: 115px;
   width: 500px;
-
   background-color: #eba;
 }
 </style>
