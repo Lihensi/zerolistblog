@@ -9,7 +9,7 @@ module.exports = defineConfig({
         // 远程服务器
         // target: 'http://zerolist.cn:8080',
         // 本地服务器
-        target: 'http://localhost:8001',
+        target: 'http://localhost:8085',
       },
     }
   }

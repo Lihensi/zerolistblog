@@ -27,8 +27,6 @@ new Vue({
   beforeCreate() {
     //配置全局事件总线
     Vue.prototype.$bus = this;
-    //通过Vue.prototype原型对象,将全部请求函数挂载到原型对象身上[VC:就可以使用请求函数]
-    // Vue.prototype.$http = http;
   },
   router,
   //下面的代码作用:给项目添加仓库功能,主要的作用是给全部VC拥有一个$store属性
