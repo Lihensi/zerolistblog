@@ -78,6 +78,7 @@ export default {
     this.doQuery()
   },
   methods: {
+    
     // 模拟后台查询
     doQuery() {
       const start = (this.currentPage - 1) * this.pagesize
