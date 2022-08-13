@@ -115,22 +115,27 @@ article {
   display: flex;
 }
 .left {
-  flex: 1;
-  display: flex;
+  align-items: center;
+  position: relative;
+  /* flex: 1; */
+  /* display: flex; */
   width: 300px;
   flex-direction: column;
 }
 img {
-  margin: auto auto;
+  width: 300px;
+  margin: 10px auto;
 }
 .box {
+  position: relative;
   width: 400px;
-  flex: 2;
-  display: flex;
+  /* flex: 1; */
+  /* display: flex; */
   color: #0b9ade;
 }
 
 table {
+  position: absolute;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -163,7 +168,7 @@ h3 {
 }
 p {
   color: #0b9ade;
-  margin: 5px 0;
+  margin: 3px 0;
   font-size: 20px;
   text-indent: 5em;
 }

@@ -107,10 +107,10 @@ export default {
 </script>
 
 <style scoped>
-.resume{
-   position: relative; 
-   /* margin: 0 auto;  */
-}
+/* .resume{
+   position: absolute;  */
+   /* margin: 0 auto; 
+} */
 .center {
   position: absolute;
   margin-top: 10px;
@@ -133,16 +133,17 @@ export default {
   /* margin-top: 10px; */
   background-color: red;
   height: 150px;
-  width: 500px;
+  width: 525px;
 }
 .left {
   /* border: 1px solid red; */
   width: 450px;
-  background-color: #ebf;
+  /* background-color: #ebf; */
 }
 .right {
   width: 180px;
-  background-color: #afe;
+  left: 100%;
+  /* background-color: #afe; */
 }
 .right > img {
   width: 150px;
@@ -151,22 +152,22 @@ export default {
   height: 125px;
   width: 500px;
 
-  background-color: skyblue;
+  /* background-color: skyblue; */
 }
 .work {
   width: 500px;
 
-  height: 125px;
-  background-color: #dff;
+  height: 124px;
+  /* background-color: #dff; */
 }
 .skill {
   width: 500px;
-  height: 120px;
-  background-color: #fea;
+  height: 119px;
+  /* background-color: #fea; */
 }
 .me {
   height: 115px;
   width: 500px;
-  background-color: #eba;
+  /* background-color: #eba; */
 }
 </style>

@@ -2,6 +2,8 @@ import Vue from 'vue'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import App from './App.vue'
+import VueParticles from 'vue-particles'  
+
 
 //引入全局组件
 import Header from '@/components/header'
@@ -9,7 +11,7 @@ import Footer from '@/components/footer'
 
 Vue.component(Header.name, Header);
 Vue.component(Footer.name, Footer);
-
+Vue.use(VueParticles)
 //注册路由功能
 import router from '@/router';
 //注册仓库功能
