@@ -18,5 +18,6 @@ div {
 h3 {
   text-align: center;
   margin: 10px auto;
+  font: optional;
 }
 </style>
