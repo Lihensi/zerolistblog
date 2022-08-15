@@ -8,6 +8,7 @@ const Introduce = () => import("@/pages/introduce")
 const Resume = () => import("@/pages/resume")
 const Comments = () => import('@/pages/comments')
 const About = () => import('@/pages/about')
+const User = () => import('@/pages/user')
 
 const originalPush = VueRouter.prototype.push
 
@@ -26,9 +27,8 @@ const routes = [
       { path: '/introduce', component: Introduce },
       { path: '/resume', component: Resume },
       { path: '/comments', component: Comments },
-      {
-        path: '/about', component: About
-      }
+      { path: '/about', component: About },
+      { path: '/user', component: User },
     ]
   },
 

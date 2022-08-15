@@ -109,15 +109,15 @@ export default {
 <style scoped>
 /* .resume{
    position: absolute;  */
-   /* margin: 0 auto; 
+/* margin: 0 auto; 
 } */
 .center {
-  position: absolute;
+  position: relative;
   margin-top: 10px;
+justify-items: center;
   left: 50%;
   transform: translateX(-50%);
-  border:1px solid #fea;
-
+  border: 1px solid #fea;
 }
 .all {
   width: 100%;
@@ -131,43 +131,46 @@ export default {
 .header {
   display: flex;
   /* margin-top: 10px; */
-  background-color: red;
+  /* background-color: red; */
   height: 150px;
   width: 525px;
+  border: 1px solid #fea;
 }
 .left {
   /* border: 1px solid red; */
-  width: 450px;
+  width: 450px;border: #fea;
   /* background-color: #ebf; */
 }
 .right {
   width: 180px;
   left: 100%;
+  border: #fea;
   /* background-color: #afe; */
 }
 .right > img {
   width: 150px;
 }
 .edu {
-  height: 125px;
-  width: 500px;
+  border:  #fea;
+  height: 123px;
+  width: 525px;
 
   /* background-color: skyblue; */
 }
 .work {
-  width: 500px;
-
-  height: 124px;
+  width: 525px;
+border:  #fea;
+  height: 123px;
   /* background-color: #dff; */
 }
 .skill {
-  width: 500px;
+  width: 525px;border:#fea;
   height: 119px;
   /* background-color: #fea; */
 }
-.me {
+.me {border: #fea;
   height: 115px;
-  width: 500px;
+  width: 525px;
   /* background-color: #eba; */
 }
 </style>

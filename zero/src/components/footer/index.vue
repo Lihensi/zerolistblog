@@ -25,7 +25,7 @@ export default {
 a{
   text-align:center;
   color: aqua;
-  margin: 20px auto;
+  margin: 0 auto;
   text-decoration: none;
 }
 </style>

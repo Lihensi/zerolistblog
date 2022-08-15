@@ -1,13 +1,13 @@
 <template>
-  <div></div>
+  <div><h1>geren</h1></div>
 </template>
 
 <script>
 export default {
-name:'login',
+
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>

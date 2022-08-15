@@ -56,6 +56,8 @@
             <td>
               专业 ： <span>{{ personal.professional }}</span>
             </td>
+          </tr>
+          <tr>
             <td>
               状态 ： <span>{{ personal.state }}</span>
             </td>
@@ -124,7 +126,7 @@ article {
 }
 img {
   width: 300px;
-  margin: 10px auto;
+  margin: 50px auto;
 }
 .box {
   position: relative;
@@ -138,9 +140,9 @@ table {
   position: absolute;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 500px;
   height: 100%;
-  padding: 50px 50px;
+  padding: 50px 0 50px 0;
 }
 
 tr {
@@ -152,7 +154,7 @@ tr {
 td {
   font-size: 15px;
   display: block;
-  flex: 1;
+  flex:1
 }
 span {
   color: #163b80;

@@ -14,6 +14,7 @@
           </li>
           <hr />
           <li class="item" @click="go('about')">关于自己</li>
+          <li class="item" @click="go('user')">个人</li>
         </ul>
       </div>
       <div class="right-box">
@@ -52,7 +53,7 @@ export default {
 }
 
 #home {
-  /* position: absolute; */
+  position: absolute;
   /* position: relative; */
   justify-content: center;
   height: 100%;
@@ -67,7 +68,7 @@ export default {
   );
   background: linear-gradient(to right, rgb(0, 90, 167), rgb(255, 253, 228));
   /* flex: 99; */
-  z-index: 1;
+  z-index: 99;
 }
 .xnav {
   position: relative;
@@ -86,6 +87,7 @@ export default {
   /* position: relative; */
   width: 250px;
   height: 700px;
+  border: 2px solid rgb(0, 174, 255);
   background-color: rgba(12, 145, 240, 0.2);
   font-size: 14px;
   /* display: flex; */
@@ -100,7 +102,7 @@ export default {
   height: 700px;
   /* position: relative; */
   border: 2px solid rgb(0, 174, 255);
-  /* margin: 0px 10px; */
+  margin: 0px 10px;
   box-sizing: border-box;
   padding: 20px;
   white-space: nowrap;
@@ -112,9 +114,9 @@ ul {
   margin: 20px;
 }
 li {
-  font-size: 30px;
-  height: 46px;
-  /* y 弹性布局 垂直居中 */
+  font-size: 20px;
+  height: 50px;
+  /* 弹性布局 垂直居中 */
   display: flex;
   align-items: center;
   /* margin-top: 20px; */
