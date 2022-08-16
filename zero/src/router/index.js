@@ -9,6 +9,8 @@ const Resume = () => import("@/pages/resume")
 const Comments = () => import('@/pages/comments')
 const About = () => import('@/pages/about')
 const User = () => import('@/pages/user')
+const Login = () => import('@/pages/login')
+const Register = () => import('@/pages/register')
 
 const originalPush = VueRouter.prototype.push
 
@@ -28,7 +30,11 @@ const routes = [
       { path: '/resume', component: Resume },
       { path: '/comments', component: Comments },
       { path: '/about', component: About },
-      { path: '/user', component: User },
+      {
+        path: '/user', component: User
+      },
+      { path: '/login', component: Login },
+      { path: '/register', component: Register }
     ]
   },
 

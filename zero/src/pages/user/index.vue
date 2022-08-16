@@ -1,5 +1,5 @@
 <template>
-  <div><h1>geren</h1></div>
+  <router-view></router-view>
 </template>
 
 <script>

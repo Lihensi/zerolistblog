@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <Header />
+    
     <div class="xnav">
       <div class="left-box">
         <ul>
@@ -15,6 +15,7 @@
           <hr />
           <li class="item" @click="go('about')">关于自己</li>
           <li class="item" @click="go('user')">个人</li>
+          <Header/>
         </ul>
       </div>
       <div class="right-box">
@@ -55,8 +56,8 @@ export default {
 #home {
   position: absolute;
   /* position: relative; */
-  justify-content: center;
-  height: 100%;
+  /* justify-content: center; */
+  height: 860px;
   width: 100%;
   /* 渐变色 */
   background: #005ad7;
