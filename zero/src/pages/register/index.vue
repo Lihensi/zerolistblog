@@ -1,199 +1,135 @@
 <template>
-  <div id='body'>
-    <div class="container">
-        <div class="tit">登录</div>
-        <input type="text" placeholder="账号">
-        <input type="password" placeholder="密码">
-        <button>登录</button>
-        <span>没有账号？<a href="#">去注册</a></span>
-    </div>
-    <div class="square">
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </div>
-    <div class="circle">
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+  <div class="register">
+    <!-- 注册的盒子 -->
+    <div class="reg-box">
+      <!-- 标题的盒子 -->
+      <div class="title-box"><h2>注册</h2></div>
+      <!-- 注册的表单区域 —— 【element-ui✨】 -->
+      <el-form ref="form" :model="regFrom" :rules="regRules">
+        <el-form-item prop="username">
+          <el-input
+            v-model="regFrom.username"
+            placeholder="请输入用户名"
+          ></el-input>
+        </el-form-item>
+        <el-form-item prop="password">
+          <el-input
+            v-model="regFrom.password"
+            placeholder="请输入密码"
+            type="password"
+          ></el-input>
+        </el-form-item>
+        <el-form-item prop="repassword">
+          <el-input
+            v-model="regFrom.repassword"
+            placeholder="请再次确认密码"
+            type="password"
+          ></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button class="btn-reg" type="primary" @click="btn_reg"
+            >注册</el-button
+          >
+          <el-link type="info" @click="$router.push('/user/login')">去登录</el-link>
+        </el-form-item>
+      </el-form>
     </div>
   </div>
 </template>
 
 <script>
+import { registerAPI } from "@/api/index.js";
+
 export default {
-name:'login',
-}
+  name: "register",
+  data() {
+    const validatePass = (rule, value, callback) => {
+      if (value !== this.regFrom.password) {
+        callback(new Error("两次输入密码不一致!"));
+      } else {
+        callback();
+      }
+    };
+    return {
+      // 表单的数据对象 —— 【数据使用对象呢的形式、✨对象属性名与接属性名一致】
+      regFrom: {
+        username: "",
+        password: "",
+        repassword: "",
+      },
+      // 表单规则校验对象 —— 【使用element-ui自带的表单验证、✨自定义表单验证】
+      regRules: {
+        username: [
+          { required: true, message: "请输入用户名", trigger: "blur" },
+          {
+            pattern: /^[a-zA-Z0-9]{1,10}$/,
+            message: "用户名必须是1-10的大小写字母数字",
+            trigger: "blur",
+          },
+        ],
+        password: [
+          { required: true, message: "请输入密码", trigger: "blur" },
+          {
+            pattern: /^\S{6,16}$/,
+            message: "密码必须是6-16的非空字符",
+            trigger: "blur",
+          },
+        ],
+        repassword: [
+          { required: true, message: "请再次确认密码", trigger: "blur" },
+          // 自定义表单验证
+          { validator: validatePass, trigger: "blur" },
+        ],
+      },
+    };
+  },
+  methods: {
+    btn_reg() {
+      // 【使用element-ui内置的✨validate函数：JS兜底校验】
+      this.$refs.form.validate(async (valid) => {
+        if (valid) {
+          // console.log(this.regFrom)
+          const { data: res } = await registerAPI(this.regFrom);
+          // console.log(res)
+          // 注册成功、失败提示 —— 【element-ui的✨弹窗提示】
+          if (res.code !== 0) return this.$message.error(res.message);
+          this.$message.success(res.message);
+
+          this.$router.push("/user/login");
+        } else {
+          return false;
+        }
+      });
+    },
+  },
+};
 </script>
 
-<style scoped>
-*{
-    /* 初始化 */
-    margin: 0;
-    padding: 0;
-}
-#body{
-    /* 100%窗口高度 */
-    height: 100vh;
-    /* 弹性布局 居中 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* 渐变背景 */
-    background: linear-gradient(200deg,#e3c5eb,#a9c1ed);
-    /* 溢出隐藏 */
-    overflow: hidden;
-}
-.container{
-    /* 相对定位 */
-    position: relative;
-    z-index: 1;
-    background-color: #fff;
-    border-radius: 15px;
-    /* 弹性布局 垂直排列 */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 350px;
-    height: 500px;
-    /* 阴影 */
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-.container .tit{
-    font-size: 26px;
-    margin: 65px auto 70px auto;
-}
-.container input{
-    width: 280px;
-    height: 30px;
-    text-indent: 8px;
-    border: none;
-    border-bottom: 1px solid #ddd;
-    outline: none;
-    margin: 12px auto;
-}
-.container button{
-    width: 280px;
-    height: 40px;
-    margin: 35px auto 40px auto;
-    border: none;
-    background: linear-gradient(-200deg,#fac0e7,#aac2ee);
-    color: #fff;
-    font-weight: bold;
-    letter-spacing: 8px;
-    border-radius: 10px;
-    cursor: pointer;
-    /* 动画过渡 */
-    transition: 0.5s;
-}
-.container button:hover{
-    background: linear-gradient(-200deg,#aac2ee,#fac0e7);
-    background-position-x: -280px;
-}
-.container span{
-    font-size: 14px;
-}
-.container a{
-    color: plum;
-    text-decoration: none;
-}
-ul li{
-    position: absolute;
-    border: 1px solid #fff;
-    background-color: #fff;
-    width: 30px;
-    height: 30px;
-    list-style: none;
-    opacity: 0;
-}
-.square li{
-    top: 40vh;
-    left: 60vw;
-    /* 执行动画：动画名 时长 线性的 无限次播放 */
-    animation: square 10s linear infinite;
-}
-.square li:nth-child(2){
-    top: 80vh;
-    left: 10vw;
-    /* 设置动画延迟时间 */
-    animation-delay: 2s;
-}
-.square li:nth-child(3){
-    top: 80vh;
-    left: 85vw;
-    /* 设置动画延迟时间 */
-    animation-delay: 4s;
-}
-.square li:nth-child(4){
-    top: 10vh;
-    left: 70vw;
-    /* 设置动画延迟时间 */
-    animation-delay: 6s;
-}
-.square li:nth-child(5){
-    top: 10vh;
-    left: 10vw;
-    /* 设置动画延迟时间 */
-    animation-delay: 8s;
-}
-.circle li{
-    bottom: 0;
-    left: 15vw;
-    /* 执行动画 */
-    animation: circle 10s linear infinite;
-}
-.circle li:nth-child(2){
-    left: 35vw;
-    /* 设置动画延迟时间 */
-    animation-delay: 2s;
-}
-.circle li:nth-child(3){
-    left: 55vw;
-    /* 设置动画延迟时间 */
-    animation-delay: 6s;
-}
-.circle li:nth-child(4){
-    left: 75vw;
-    /* 设置动画延迟时间 */
-    animation-delay: 4s;
-}
-.circle li:nth-child(5){
-    left: 90vw;
-    /* 设置动画延迟时间 */
-    animation-delay: 8s;
+<style  scoped>
+.register {
+  background: url("../../assets/images/login_bg.jpg") center;
+  background-size: cover;
+  height: 100%;
 }
 
-/* 定义动画 */
-@keyframes square {
-    0%{
-        transform: scale(0) rotateY(0deg);
-        opacity: 1;
-    }
-    100%{
-        transform: scale(5) rotateY(1000deg);
-        opacity: 0;
-    }
+.reg-box {
+  width: 400px;
+  height: 335px;
+  background-color: #fff;
+  border-radius: 3px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 30px;
+  box-sizing: border-box;
 }
-@keyframes circle {
-    0%{
-        transform: scale(0) rotateY(0deg);
-        opacity: 1;
-        bottom: 0;
-        border-radius: 0;
-    }
-    100%{
-        transform: scale(5) rotateY(1000deg);
-        opacity: 0;
-        bottom: 90vh;
-        border-radius: 50%;
-    }
+
+.title-box {
+  height: 60px;
+  /* background: url("../../assets/images/login_title.png") center no-repeat; */
+}
+.btn-reg {
+  width: 100%;
 }
 </style>

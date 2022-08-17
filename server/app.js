@@ -1,28 +1,49 @@
-// 创建express服务器
+//入口文件
 const express = require('express')
 const app = express()
-    // 注册解析 表单数据的 body-parser
-const bodyParser = require('body-parser')
-    // 将请求响应设置content-type设置为application/json
-const router = require('./router.js')
-app.use('/api/*', function(req, res, next) {
-    // 设置请求头为允许跨域
-    res.header("Access-Control-Allow-Origin", "*");
-    // 设置服务器支持的所有头信息字段
-    res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
-    // 设置服务器支持的所有跨域请求的方法
-    res.header("Access-Control-Allow-Methods", "POST,GET");
-    // next()方法表示进入下一个路由
-    next();
-});
-// post
-app.use(bodyParser.urlencoded({ extended: false }))
-    // 处理json格式的参数
-app.use(bodyParser.json())
-    // 配置路由
-app.use(router)
-    // 服务器已经启动
-app.listen('8085', function(res) {
-    console.log('running...')
-    console.log(res)
+
+const cors = require('cors')
+const joi = require('joi')
+app.use(cors())
+
+app.use(express.urlencoded({ extended: false }))
+app.use('/uploads', express.static('./uploads'))
+// 响应数据的中间件
+app.use(function (req, res, next) {
+    // status = 0 为成功； status = 1 为失败； 默认将 status 的值设置为 1，方便处理失败的情况
+    res.cc = function (err, status = 1) {
+        res.send({
+            // 状态
+            status,
+            // 状态描述，判断 err 是 错误对象 还是 字符串
+            message: err instanceof Error ? err.message : err,
+        })
+    }
+    next()
+})
+
+// 解析 token 的中间件
+const expressJWT = require('express-jwt')
+const config = require('./config')
+// 使用 .unless({ path: [/^\/api\//] }) 指定哪些接口不需要进行 Token 的身份认证
+// app.use(expressJWT({ secret: config.jwtSecretKey }).unless({ path: [/^\/api\//] }))
+// app.use(expressJWT({ secret: config.jwtSecretKey, algorithms: ['HS256'] }).unless({ path: [/^\/api/] }))
+
+//导入并使用用户路由模块
+const userRouter = require('./router/user')
+// const res = require('express/lib/response')
+app.use('/api', userRouter);
+//导入并使用用户信息的路由模块
+const userinfoRouter = require('./router/userinfo')
+app.use('/my', userinfoRouter)
+
+
+app.use((err, req, res, next) => {
+    if (err instanceof joi.ValidationError) return res.cc(err)
+    if (err.name === 'UnauthorizedError') return res.cc('身份认证失败！')
+    res.cc(err)
+})
+
+app.listen(8085, () => {
+    console.log('api server running at http://127.0.0.1:8085')
 })
