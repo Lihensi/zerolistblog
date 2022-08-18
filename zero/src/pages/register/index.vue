@@ -4,24 +4,24 @@
     <div class="reg-box">
       <!-- 标题的盒子 -->
       <div class="title-box"><h2>注册</h2></div>
-      <!-- 注册的表单区域 —— 【element-ui✨】 -->
-      <el-form ref="form" :model="regFrom" :rules="regRules">
+      <!-- 注册的表单区域  -->
+      <el-form ref="form" :model="regForm" :rules="regRules">
         <el-form-item prop="username">
           <el-input
-            v-model="regFrom.username"
+            v-model="regForm.username"
             placeholder="请输入用户名"
           ></el-input>
         </el-form-item>
         <el-form-item prop="password">
           <el-input
-            v-model="regFrom.password"
+            v-model="regForm.password"
             placeholder="请输入密码"
             type="password"
           ></el-input>
         </el-form-item>
         <el-form-item prop="repassword">
           <el-input
-            v-model="regFrom.repassword"
+            v-model="regForm.repassword"
             placeholder="请再次确认密码"
             type="password"
           ></el-input>
@@ -44,7 +44,7 @@ export default {
   name: "register",
   data() {
     const validatePass = (rule, value, callback) => {
-      if (value !== this.regFrom.password) {
+      if (value !== this.regForm.password) {
         callback(new Error("两次输入密码不一致!"));
       } else {
         callback();
@@ -52,7 +52,7 @@ export default {
     };
     return {
       // 表单的数据对象 —— 【数据使用对象呢的形式、✨对象属性名与接属性名一致】
-      regFrom: {
+      regForm: {
         username: "",
         password: "",
         repassword: "",
@@ -70,8 +70,8 @@ export default {
         password: [
           { required: true, message: "请输入密码", trigger: "blur" },
           {
-            pattern: /^\S{6,16}$/,
-            message: "密码必须是6-16的非空字符",
+            pattern: /^[\S]{6,12}$/,
+            message: "密码必须是6-12的非空字符",
             trigger: "blur",
           },
         ],
@@ -88,8 +88,8 @@ export default {
       // 【使用element-ui内置的✨validate函数：JS兜底校验】
       this.$refs.form.validate(async (valid) => {
         if (valid) {
-          // console.log(this.regFrom)
-          const { data: res } = await registerAPI(this.regFrom);
+          // console.log(this.regForm)
+          const { data: res } = await registerAPI(this.regForm);
           // console.log(res)
           // 注册成功、失败提示 —— 【element-ui的✨弹窗提示】
           if (res.code !== 0) return this.$message.error(res.message);
@@ -107,6 +107,7 @@ export default {
 
 <style  scoped>
 .register {
+    position: relative;
   background: url("../../assets/images/login_bg.jpg") center;
   background-size: cover;
   height: 100%;

@@ -23,7 +23,7 @@
           <el-button class="btn-login" type="primary" @click="btn_login"
             >登录</el-button
           >
-          <el-link type="info" @click="$router.push('/register')"
+          <el-link type="info" @click="$router.push('/user/register')"
             >去注册</el-link
           >
         </el-form-item>
@@ -56,8 +56,8 @@ export default {
         password: [
           { required: true, message: "请输入密码", trigger: "blur" },
           {
-            pattern: /^\S{6,15}$/,
-            message: "密码必须是6-15的非空字符",
+            pattern: /^\S{6,12}$/,
+            message: "密码必须是6-12的非空字符",
             trigger: "blur",
           },
         ],
@@ -91,6 +91,7 @@ export default {
 
 <style  scoped>
 .comLogin-container {
+    position: relative;
   background: url("../../assets/images/login_bg.jpg") center;
   background-size: cover;
   height: 100%;

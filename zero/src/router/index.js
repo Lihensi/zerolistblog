@@ -31,10 +31,14 @@ const routes = [
       { path: '/comments', component: Comments },
       { path: '/about', component: About },
       {
-        path: '/user', component: User
+        path: '/user', component: User, children:
+
+          [{ path: '/', redirect: '/user/login' },
+          { path: '/user/login', component: Login },
+          { path: '/user/register', component: Register }]
       },
-      { path: '/login', component: Login },
-      { path: '/register', component: Register }
+
+
     ]
   },
 
