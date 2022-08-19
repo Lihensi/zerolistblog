@@ -17,7 +17,7 @@ exports.regUser = (req, res) => {
   // }
 
   // 定义 SQL 语句，查询用户名是否被占用
-  const sqlStr = 'select * from user where username=?'
+  const sqlStr = 'select * from ev_users where username=?'
   db.query(sqlStr, userinfo.username, (err, results) => {
     // 执行 SQL 语句失败
     if (err) {
@@ -32,7 +32,7 @@ exports.regUser = (req, res) => {
     // 调用 bcrypt.hashSync() 对密码进行加密
     userinfo.password = bcrypt.hashSync(userinfo.password, 10)
     // 定义插入新用户的 SQL 语句
-    const sql = 'insert into user set ?'
+    const sql = 'insert into ev_users set ?'
     // 调用 db.query() 执行 SQL 语句
     db.query(sql, { username: userinfo.username, password: userinfo.password }, (err, results) => {
       // 判断 SQL 语句是否执行成功
@@ -53,14 +53,14 @@ exports.login = (req, res) => {
   // 接收表单的数据
   const userinfo = req.body
   // 定义 SQL 语句
-  const sql = `select * from user where username=?`
+  const sql = `select * from ev_users where username=?`
   // 执行 SQL 语句，根据用户名查询用户的信息
   db.query(sql, userinfo.username, (err, results) => {
     // 执行 SQL 语句失败
-    
     if (err) return res.cc(err)
     // 执行 SQL 语句成功，但是获取到的数据条数不等于 1
     if (results.length !== 1) return res.cc('登录失败！')
+
     // TODO：判断密码是否正确
     const compareResult = bcrypt.compareSync(userinfo.password, results[0].password)
     if (!compareResult) return res.cc('登录失败！')
