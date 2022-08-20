@@ -13,5 +13,7 @@ export default {
 </script>
 
 <style scoped>
-
+#user{
+  position: absolute;
+}
 </style>
