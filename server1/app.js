@@ -23,24 +23,24 @@ app.use(function (req, res, next) {
 })
 
 // 解析 token 的中间件
-const expressJWT = require('express-jwt')
-const config = require('./config')
+// const expressJWT = require('express-jwt')
+// const config = require('./config')
 // 使用 .unless({ path: [/^\/api\//] }) 指定哪些接口不需要进行 Token 的身份认证
 // app.use(expressJWT({ secret: config.jwtSecretKey }).unless({ path: [/^\/api\//] }))
-app.use(expressJWT({ secret: config.jwtSecretKey, algorithms: ['HS256'] }).unless({ path: [/^\/api/] }))
+// app.use(expressJWT({ secret: config.jwtSecretKey, algorithms: ['HS256'] }).unless({ path: [/^\/api/] }))
 
 //导入并使用用户路由模块
 const userRouter = require('./router/user')
-// const res = require('express/lib/response')
+const res = require('express/lib/response')
 app.use('/api', userRouter);
 
 
 app.use((err, req, res, next) => {
   if (err instanceof joi.ValidationError) return res.cc(err)
-  if (err.name === 'UnauthorizedError') return res.cc('身份认证失败！')
+  if (err.username === 'UnauthorizedError') return res.cc('身份认证失败！')
   res.cc(err)
 })
 
 app.listen(8085, () => {
-  console.log('api server running at http://127.0.0.1:8085')
+  console.log('api server running at http://127.0.0.1: '+'$port')
 })
