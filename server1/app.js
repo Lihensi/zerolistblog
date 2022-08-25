@@ -3,7 +3,8 @@ const express = require('express')
 const app = express()
 
 const cors = require('cors')
-const joi = require('@hapi/joi')
+// const joi = require('@hapi/joi')
+const joi = require('joi')
 app.use(cors())
 
 app.use(express.urlencoded({ extended: false }))
@@ -24,10 +25,15 @@ app.use(function (req, res, next) {
 
 // 解析 token 的中间件
 // const expressJWT = require('express-jwt')
-// const config = require('./config')
+const  expressjwt  = require('express-jwt');
+
+const config = require('./config')
 // 使用 .unless({ path: [/^\/api\//] }) 指定哪些接口不需要进行 Token 的身份认证
 // app.use(expressJWT({ secret: config.jwtSecretKey }).unless({ path: [/^\/api\//] }))
 // app.use(expressJWT({ secret: config.jwtSecretKey, algorithms: ['HS256'] }).unless({ path: [/^\/api/] }))
+
+app.use(expressjwt({ secret: 'config.jwtSecretKey', algorithms: ['HS256'], credentialsRequired: true, }).unless({ path: [/^\/api\//] }));
+
 
 //导入并使用用户路由模块
 const userRouter = require('./router/user')
@@ -42,5 +48,5 @@ app.use((err, req, res, next) => {
 })
 
 app.listen(8085, () => {
-  console.log('api server running at http://127.0.0.1: '+'$port')
+  console.log('api server running at http://127.0.0.1:' + '$port')
 })

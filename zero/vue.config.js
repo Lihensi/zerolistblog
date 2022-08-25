@@ -4,6 +4,7 @@ module.exports = defineConfig({
   lintOnSave: false,
   productionSourceMap: false,
   devServer: {
+    
     proxy: {
       '/api': {
         // 远程服务器
