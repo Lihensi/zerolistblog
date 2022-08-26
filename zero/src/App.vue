@@ -136,7 +136,7 @@ export default {
 </script>
 <style>
 #app {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   right: 0;
   bottom: 0;

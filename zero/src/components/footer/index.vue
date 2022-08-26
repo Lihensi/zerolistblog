@@ -7,25 +7,21 @@
 <script>
 export default {
   name: "Footer",
-
 };
 </script>
 
 <style scoped>
 .footer{
+  position: relative;
   width: 100%;
-  /* height: 20px; */
-  /* top: 100%; */
-  margin: 0 auto;
+  height: 20px;
   /* display: flex; */
 }
 .site{
   text-align: center;
 }
 a{
-  text-align:center;
   color: aqua;
-  margin: 0 auto;
   text-decoration: none;
 }
 </style>

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import App from './App.vue'
+import '../public/reset.css'
 import VueParticles from 'vue-particles'  
 
 
@@ -21,7 +22,7 @@ import router from '@/router';
 import '@/elements'
 import axios from 'axios'
 
-Vue.prototype.$http = axios
+Vue.prototype.$axios = axios
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 

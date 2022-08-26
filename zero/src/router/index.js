@@ -11,6 +11,7 @@ const About = () => import('@/pages/about')
 const User = () => import('@/pages/user')
 const Login = () => import('@/pages/login')
 const Register = () => import('@/pages/register')
+const LoginRegister=()=> import('@/pages/loginRegister')
 
 const originalPush = VueRouter.prototype.push
 
@@ -34,8 +35,10 @@ const routes = [
         path: '/user', component: User, children:
 
           [{ path: '/', redirect: '/user/login' },
-          { path: '/user/login', component: Login },
-          { path: '/user/register', component: Register }]
+          // { path: '/user/login', component: Login },
+          // { path: '/user/register', component: Register }
+          { path: '/user/login', component: LoginRegister }
+        ]
       },
 
 
