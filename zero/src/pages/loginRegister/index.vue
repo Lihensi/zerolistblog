@@ -5,15 +5,15 @@
 				<div class="big-contain" key="bigContainLogin" v-if="isLogin">
 					<div class="btitle">账户登录</div>
 					<div class="bform">
-						<input type="text" placeholder="用户名" v-model="form.username">
-						<span class="errTips" v-if="emailError">* 用户名填写错误 *</span>
+						<input type="email" placeholder="邮箱" v-model="form.useremail">
+						<span class="errTips" v-if="emailError">* 邮箱填写错误 *</span>
 						<input type="password" placeholder="密码" v-model="form.userpwd">
 						<span class="errTips" v-if="emailError">* 密码填写错误 *</span>
 					</div>
 					<button class="bbutton" @click="login">登录</button>
 				</div>
 				<div class="big-contain" key="bigContainRegister" v-else>
-					<div class="btitle">注册账户</div>
+					<div class="btitle">创建账户</div>
 					<div class="bform">
 						<input type="text" placeholder="用户名" v-model="form.username">
 						<span class="errTips" v-if="existed">* 用户名已经存在！ *</span>
@@ -26,12 +26,12 @@
 			<div class="small-box" :class="{active:isLogin}">
 				<div class="small-contain" key="smallContainRegister" v-if="isLogin">
 					<div class="stitle">你好，朋友!</div>
-					<p class="scontent">开始注册，和我们一起旅行</p>
+					<p class="scontent">开始注册，和空一起旅行</p>
 					<button class="sbutton" @click="changeType">注册</button>
 				</div>
 				<div class="small-contain" key="smallContainLogin" v-else>
 					<div class="stitle">欢迎回来!</div>
-					<p class="scontent">与我们保持联系，请登录你的账户</p>
+					<p class="scontent">与旅行者保持联系，请登录你的账户</p>
 					<button class="sbutton" @click="changeType">登录</button>
 				</div>
 			</div>
@@ -64,12 +64,12 @@
 			},
 			login() {
 				const self = this;
-				if (self.form.username != "" && self.form.userpwd != "") {
+				if (self.form.useremail != "" && self.form.userpwd != "") {
 					self.$axios({
 						method:'post',
 						url: 'http://127.0.0.1:8085/api/user/login',
 						data: {
-							text: self.form.username,
+							email: self.form.useremail,
 							password: self.form.userpwd
 						}
 					})
@@ -129,15 +129,16 @@
 
 <style scoped="scoped">
 	.login-register{
-		width: 70vw;
-		height: 70vh;
+		/* position: absolute; */
+		width: 80vw;
+		height: 100vh;
 		box-sizing: border-box;
 	}
 	.contain{
 		width: 60%;
 		height: 60%;
 		position: relative;
-		top: 50%;
+		top: 40%;
 		left: 30%;
 		transform: translate(-50%,-50%);
 		background-color: #fff;
@@ -165,7 +166,7 @@
 	.btitle{
 		font-size: 1.5em;
 		font-weight: bold;
-		color: rgb(24, 132, 142);
+		color: rgb(57,167,176);
 	}
 	.bform{
 		width: 100%;
@@ -180,7 +181,7 @@
 		display: block;
 		width: 50%;
 		text-align: left;
-		color: red;
+		color: rgb(196, 35, 35);
 		font-size: 0.7em;
 		margin-left: 1em;
 	}
@@ -199,7 +200,7 @@
 		border-radius: 24px;
 		border: none;
 		outline: none;
-		background-color: rgb(57,167,176);
+		background-color: rgb(57, 99, 196);
 		color: #fff;
 		font-size: 0.9em;
 		cursor: pointer;
@@ -207,7 +208,7 @@
 	.small-box{
 		width: 30%;
 		height: 100%;
-		background: linear-gradient(135deg,rgb(116, 101, 214),rgb(56,183,145));
+		background: linear-gradient(135deg,rgb(68, 125, 212),rgb(30, 49, 219));
 		position: absolute;
 		top: 0;
 		left: 0;

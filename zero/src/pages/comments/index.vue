@@ -170,4 +170,3 @@ export default {
   letter-spacing: 20px;
 }
 </style>
-

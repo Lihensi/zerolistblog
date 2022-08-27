@@ -13,6 +13,7 @@
     "core-js": "^3.8.3",
     "element-ui": "^2.15.9",
     "express": "^4.18.1",
+    "iview": "^3.5.4",
     "mockjs": "^1.1.0",
     "mysql": "^2.18.1",
     "nprogress": "^0.2.0",
