@@ -124,7 +124,7 @@ export default {
   float: left;
   margin-top: 20px;
   margin-left: 10%;
-  width: 80%;
+  width: 100%;
   height: 500px;
   background: rgb(252, 250, 250);
 }
