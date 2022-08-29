@@ -1,18 +1,18 @@
-const models = require('../db/db');
+const db = require('../db');
 const express = require('express');
 const router = express.Router();
-const mysql = require('mysql');
-const $sql = require('../db/sqlMap');
+// const mysql = require('mysql');
+// const $sql = require('../db/sqlMap');
 
-const conn = mysql.createConnection(models.mysql);
-conn.connect();
+// const conn = mysql.createConnection(models.mysql);
+// conn.connect();
 
 // 登录接口
 router.post('/login',(req,res)=>{
 	const user = req.body;
-	const sel_email = $sql.user.select + " where email = '" + user.email + "'";
+	const sel_email = "select * from user where email = ?";
 	console.log(sel_email);
-	conn.query(sel_email, user.email, (error, results)=>{
+	db.query(sel_email, user.email, (error, results)=>{
 		if (error) {
 			throw error;
 		}
@@ -32,18 +32,18 @@ router.post('/login',(req,res)=>{
 // 注册接口
 router.post('/add', (req, res) => {
 	const params = req.body;
-	const sel_sql = $sql.user.select + " where username = '" + params.username + "'";
-	const add_sql = $sql.user.add;
+	const sel_sql = "select * from user where username = ?";
+	const add_sql = "insert into user (username, email, password) values (?,?,?)'";
 	console.log(sel_sql);
 	
-	conn.query(sel_sql, params.username, (error, results) => {
+	db.query(sel_sql, params.username, (error, results) => {
 		if(error) {
 			console.log(err);
 		}
 		if (results.length != 0 && params.username == results[0].username) {
 			res.send("-1");   // -1 表示用户名已经存在
 		} else {
-			conn.query(add_sql, [params.username, params.email, params.password], (err, rst) => {
+			db.query(add_sql, [params.username, params.email, params.password], (err, rst) => {
 				if (err) {
 					console.log(err);
 				} else{

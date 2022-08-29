@@ -11,6 +11,7 @@ module.exports = defineConfig({
         // target: 'http://zerolist.cn:8085',
         // 本地服务器
         target: 'http://localhost:8085',
+        changeOrigin:true,
       },
     }
   }

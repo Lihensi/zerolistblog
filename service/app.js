@@ -4,6 +4,7 @@ const cors = require('cors')
 const app = express();
 
 const userApi = require('./api/userApi.js');
+const commentRouter = require('./comment/comment.router')
 
 // 解析 application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -22,7 +23,9 @@ app.all('*', function (req, res, next) {
 	next();
 });
 
-app.use("/api/user",userApi);
+app.use("/api",userApi);
+// 评论的接口
+app.use('/api/comment', commentRouter)
 
 app.listen(8085);
 console.log("success");
