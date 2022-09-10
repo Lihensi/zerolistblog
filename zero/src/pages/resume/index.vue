@@ -63,9 +63,7 @@
             职业技能
           </thead>
           <tr>
-            &nbsp;&nbsp;{{
-              personal.skill
-            }}
+            <p>&nbsp;&nbsp;{{ personal.skill }}</p>
           </tr>
         </table>
       </div>
@@ -96,10 +94,11 @@ export default {
         age: 20,
         phone: "13980298629",
         email: "3138220743@qq.com",
-        education: "1",
-        work: "2",
-        skill: "3",
-        me: "4",
+        education: "目前就读于四川工商学院，以后可能没了，可能有。",
+        work: "想啥呢，肯定没的撒。",
+        skill:
+          "略微了解:HTML，CSS，js，node.js,vue2,ajax,axios,至于其他嘛，慢慢来嘛！",
+        me: "也就那样，菜鸡一个",
       },
     };
   },
@@ -114,7 +113,7 @@ export default {
 .center {
   position: relative;
   margin-top: 10px;
-justify-items: center;
+  justify-items: center;
   left: 50%;
   transform: translateX(-50%);
   border: 1px solid #fea;
@@ -138,7 +137,8 @@ justify-items: center;
 }
 .left {
   /* border: 1px solid red; */
-  width: 450px;border: #fea;
+  width: 450px;
+  border: #fea;
   /* background-color: #ebf; */
 }
 .right {
@@ -151,7 +151,7 @@ justify-items: center;
   width: 150px;
 }
 .edu {
-  border:  #fea;
+  border: #fea;
   height: 123px;
   width: 525px;
 
@@ -159,16 +159,18 @@ justify-items: center;
 }
 .work {
   width: 525px;
-border:  #fea;
+  border: #fea;
   height: 123px;
   /* background-color: #dff; */
 }
 .skill {
-  width: 525px;border:#fea;
+  width: 525px;
+  border: #fea;
   height: 119px;
   /* background-color: #fea; */
 }
-.me {border: #fea;
+.me {
+  border: #fea;
   height: 115px;
   width: 525px;
   /* background-color: #eba; */

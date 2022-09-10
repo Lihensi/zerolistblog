@@ -8,12 +8,12 @@
             v-for="(item, index) in items"
             :key="item.index"
             @click="go(item.index)"
-          >
+          ><i :class="item.class"></i>
             {{ item.text }}
           </li>
           <hr />
-          <li class="item" @click="go('about')">关于自己</li>
-          <li class="item" @click="go('user')">个人</li>
+          <li class="item" @click="go('about')"><i class="iconfont icon-ziji"></i> 关于自己</li>
+          <li class="item" @click="go('user')"><i class="iconfont icon-wode-copy"></i> 个人</li>
           <Header />
         </ul>
         <Footer />
@@ -31,9 +31,9 @@ export default {
   data() {
     return {
       items: [
-        { index: "introduce", text: "自我介绍" },
-        { index: "resume", text: "简历" },
-        { index: "comments", text: "留言板" },
+        { index: "introduce", text: "自我介绍", class:'iconfont icon-ziwojieshao',},
+        { index: "resume", text: "简历", class:'iconfont icon-jianli'},
+        { index: "comments", text: "留言板",class:'iconfont icon-liuyanban' },
       ],
     };
   },
@@ -70,6 +70,7 @@ export default {
   /* flex: 99; */
   z-index: 99;
 }
+.item>i{color:aqua;}
 .xnav {
   position: relative;
   /* position: absolute; */

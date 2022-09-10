@@ -9,8 +9,8 @@ const Resume = () => import("@/pages/resume")
 const Comments = () => import('@/pages/comments')
 const About = () => import('@/pages/about')
 const User = () => import('@/pages/user')
-const Login = () => import('@/pages/login')
-const Register = () => import('@/pages/register')
+// const Login = () => import('@/pages/login')
+// const Register = () => import('@/pages/register')
 const LoginRegister=()=> import('@/pages/loginRegister')
 
 const originalPush = VueRouter.prototype.push

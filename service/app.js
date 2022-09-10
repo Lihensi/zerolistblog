@@ -23,7 +23,7 @@ app.all('*', function (req, res, next) {
 	next();
 });
 
-app.use("/api",userApi);
+app.use("/api/user",userApi);
 // 评论的接口
 app.use('/api/comment', commentRouter)
 

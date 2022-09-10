@@ -1,11 +1,6 @@
 const db = require('../db');
 const express = require('express');
 const router = express.Router();
-// const mysql = require('mysql');
-// const $sql = require('../db/sqlMap');
-
-// const conn = mysql.createConnection(models.mysql);
-// conn.connect();
 
 // 登录接口
 router.post('/login',(req,res)=>{

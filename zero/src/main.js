@@ -15,6 +15,7 @@ Vue.component(Footer.name, Footer);
 Vue.use(VueParticles)
 //注册路由功能
 import router from '@/router';
+import './assets/fonts/iconfont.css'
 //注册仓库功能
 // import store from './store';
 

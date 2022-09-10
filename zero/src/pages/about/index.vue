@@ -11,7 +11,10 @@
     <div class="react">
       <h4>随便写写</h4>
       <ul>
-        <p>{{ about.suibian }}</p>
+        <p>霜雪成雨淅沥客，水溢汇流聚为河。</p>
+        <p>羲和六龙何时过，窗外风雨又几何。</p>
+        <p>天上大臾尽七色，一正二反是霓虹。</p>
+        <p>浊酒当对斜阳饮，鸟归余晖印星空。</p>
       </ul>
 
       <h4>关于</h4>
@@ -22,10 +25,10 @@
       <h4>其他</h4>
       <div class="qq-box">
         <i class="iconfont icon-QQ-circle-fill"></i>
-        <div class="img-box">
+        <!-- <div class="img-box">
           <img src="@/assets/qq.jpg" alt="" />
           <div class="sanjiao"></div>
-        </div>
+        </div> -->
       </div>
       <div class="wx-box">
         <i class="iconfont icon-weixin"></i>
@@ -49,8 +52,7 @@ export default {
   data() {
     return {
       about: {
-        suibian: "123",
-        guanyu: "456",
+        guanyu: "没啥",
       },
     };
   },
@@ -65,11 +67,13 @@ export default {
 }
 
 h4 {
-  color: rgb(79, 109, 116);
+  color: rgb(11, 150, 182);
   text-shadow: 2px 2px 2px rgb(153, 187, 195);
 }
 p {
+  text-indent: 2em;
   color: rgb(79, 109, 116);
+  font: optional;
 }
 ul {
   padding-right: 40px;
@@ -82,14 +86,15 @@ ul {
   bottom: 30px;
   left: 40px;
 }
-.github-box:hover {
+.qq-box:hover,
+.wx-box:hover {
   cursor: pointer;
 }
 .img-box {
   display: block;
 }
 i {
-  color: #6f94c5;
+  color: #9cbfec;
 }
 
 .img-box {
@@ -110,7 +115,7 @@ img {
   position: absolute;
   bottom: -10px;
   left: 40px;
-  background: #c3d0e1;
+  background: #9ab5d8;
   width: 20px;
   height: 20px;
   transform: rotate(45deg);
@@ -118,7 +123,7 @@ img {
 
 i {
   font-size: 60px;
-  color: #94adcd;
+  color: #4471ab;
 }
 
 .wx-box {

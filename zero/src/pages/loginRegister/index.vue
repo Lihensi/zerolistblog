@@ -98,7 +98,7 @@
 				if(self.form.username != "" && self.form.useremail != "" && self.form.userpwd != ""){
 					self.$axios({
 						method:'post',
-						url: 'http://127.0.0.1:8085/api/user/add',
+						url: 'http://127.0.0.1:8085/api/add',
 						data: {
 							username: self.form.username,
 							email: self.form.useremail,
