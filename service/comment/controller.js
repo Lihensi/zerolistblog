@@ -1,4 +1,4 @@
-const service = require('./comment.service')
+const service = require('./service.js')
 
 class CommentController {
   // 发表评论

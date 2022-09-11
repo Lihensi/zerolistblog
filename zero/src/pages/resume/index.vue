@@ -33,51 +33,33 @@
           <img src="@/assets/zl.jpg" alt="" />
         </div>
       </div>
-      <div class="edu">
-        <table>
-          <thead>
-            教育背景
-          </thead>
-          <tr>
-            &nbsp;&nbsp;{{
-              personal.education
-            }}
-          </tr>
-        </table>
-      </div>
-      <div class="work">
-        <table>
-          <thead>
-            工作经历
-          </thead>
-          <tr>
-            &nbsp;&nbsp;{{
-              personal.work
-            }}
-          </tr>
-        </table>
-      </div>
-      <div class="skill">
-        <table>
-          <thead>
-            职业技能
-          </thead>
-          <tr>
-            <p>&nbsp;&nbsp;{{ personal.skill }}</p>
-          </tr>
-        </table>
-      </div>
-      <div class="me">
-        <table>
-          <thead>
-            自我评价
-          </thead>
-          <tr>
-            &nbsp;&nbsp;{{
-              personal.me
-            }}
-          </tr>
-        </table>
+      <div class="a">
+        <div class="edu">
+          <div>
+            <div>教育背景</div>
+            <div>&nbsp;&nbsp;{{ personal.education }}</div>
+          </div>
+        </div>
+        <div class="work">
+          <div>
+            <div>工作经历</div>
+            <div>&nbsp;&nbsp;{{ personal.work }}</div>
+          </div>
+        </div>
+        <div class="skill">
+          <div>
+            <div>职业技能</div>
+            <div>
+              <p>&nbsp;&nbsp;{{ personal.skill }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="me">
+          <div>
+            <div>自我评价</div>
+            <div>&nbsp;&nbsp;{{ personal.me }}</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -150,7 +132,13 @@ export default {
 .right > img {
   width: 150px;
 }
+.a{
+  position: absolute;
+  /* overflow: hidden; */
+  width: 528px;
+}
 .edu {
+  position: relative;
   border: #fea;
   height: 123px;
   width: 525px;
@@ -158,18 +146,21 @@ export default {
   /* background-color: skyblue; */
 }
 .work {
+  position: relative;
   width: 525px;
   border: #fea;
   height: 123px;
   /* background-color: #dff; */
 }
 .skill {
+  position: relative;
   width: 525px;
   border: #fea;
   height: 119px;
   /* background-color: #fea; */
 }
 .me {
+  position: relative;
   border: #fea;
   height: 115px;
   width: 525px;

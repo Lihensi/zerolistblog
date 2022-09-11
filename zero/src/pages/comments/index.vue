@@ -25,7 +25,6 @@
         v-model="note"
       ></textarea>
       <button id="submit" @click="submit">提 交</button>
-      <!-- <input type="submit" id="submit" value="提   交" /> -->
     </div>
     <!-- 留言展示区域 -->
     <div class="note-message" v-for="item in comments" :key="item.id">

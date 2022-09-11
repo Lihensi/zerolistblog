@@ -3,8 +3,8 @@ const express = require('express');
 const cors = require('cors')
 const app = express();
 
-const userApi = require('./api/userApi.js');
-const commentRouter = require('./comment/comment.router')
+const userApi = require('./login/router');
+const commentRouter = require('./comment/router')
 
 // 解析 application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -26,6 +26,7 @@ app.all('*', function (req, res, next) {
 app.use("/api/user",userApi);
 // 评论的接口
 app.use('/api/comment', commentRouter)
-
-app.listen(8085);
-console.log("success");
+app.listen('8085', function(res) {
+	console.log('running...')
+	console.log(res)
+})

@@ -8,7 +8,6 @@ class CommentService {
     const statement = `INSERT INTO comments (com_name, create_time, com_content) 
     VALUES (?, ?, ?);`
     const [result] = await connections.execute(statement, [name, time, note])
-
     console.log(result);
     return result
   }

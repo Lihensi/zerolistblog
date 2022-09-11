@@ -1,6 +1,7 @@
 
 const mysql = require('mysql2')
 
+
 const connections = mysql.createPool({
   host: 'localhost',
   port: 3306,
@@ -18,5 +19,6 @@ connections.getConnection((err, res) => {
     }
   })
 })
+
 
 module.exports = connections.promise();
